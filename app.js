@@ -4,6 +4,7 @@ const authorRouter = require("./routes/authorRoutes");
 const bookRouter = require("./routes/bookRouter");
 const indexRouter = require("./routes/indexRouter");
 const path = require("node:path");
+const assetsPath = path.join(__dirname, "public");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -14,6 +15,7 @@ const links = [
 ];
 const users = ["Rose", "Cake", "Biff"];
 
+app.use(express.static(assetsPath));
 app.use("/authors", authorRouter);
 app.use("/books", bookRouter);
 app.get("/", (req, res) => {
