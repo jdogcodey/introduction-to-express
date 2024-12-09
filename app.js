@@ -16,6 +16,9 @@ const links = [
 const users = ["Rose", "Cake", "Biff"];
 
 app.use(express.static(assetsPath));
+app.get("/about", (req, res) => {
+  res.render("about");
+});
 app.use("/authors", authorRouter);
 app.use("/books", bookRouter);
 app.get("/", (req, res) => {
